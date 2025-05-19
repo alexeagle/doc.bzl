@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import { readUtf } from './fs.mjs';
 import {AttributeType} from '@buf/bazel_bazel.bufbuild_es/src/main/java/com/google/devtools/build/skydoc/rendering/proto/stardoc_output_pb.js'
-import {runfiles} from '@bazel/runfiles';
+import * as path from 'node:path';
 
 /**
  * Side effects to make handlebars work.
@@ -246,9 +246,8 @@ export function setupHandlebars() {
      */
     const templates = {
         module: Handlebars.compile(readUtf(
-            '/Users/alexeagle/Projects/try_buf/docgen/starlark/templates/module.md',
-            // FIXME
-            // runfiles.resolveWorkspaceRelative('docgen/starlark/templates/module.md')
+            // TODO: use runfiles library @bazel/runfiles
+            path.join(process.env['JS_BINARY__RUNFILES'], '_main/tools/render/templates/module.md')
         )),
     };
 

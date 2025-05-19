@@ -11,7 +11,6 @@ ts_project(
         "handlebars.mts",
         "index.mts",
     ],
-    data = ["//tools/render/templates"],
     source_map = True,
     deps = [
         ":node_modules/@bazel/runfiles",
@@ -24,7 +23,10 @@ ts_project(
 
 js_binary(
     name = "render",
-    data = [":starlark"],
+    data = [
+        ":starlark",
+        "//tools/render/templates",
+    ],
     entry_point = "index.mjs",
     visibility = ["//:__subpackages__"],
 )
