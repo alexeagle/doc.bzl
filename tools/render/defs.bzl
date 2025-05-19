@@ -7,6 +7,6 @@ def render(module, doc):
         srcs = ["@{}//{}.doc_extract".format(module, doc)],
         args = ["$(rootpath {})".format("@{}//{}.doc_extract".format(module, doc))],
         env = {"RUNFILES_DIR": "."},
-        stdout = "_{}.{}.md".format(module, doc.replace(":", "_")),
+        stdout = "{}/{}.md".format(module, doc.replace(":", "/")),
         tool = "//tools/render",
     )
