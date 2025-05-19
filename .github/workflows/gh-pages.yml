@@ -26,11 +26,11 @@ jobs:
       - name: Build documentation
         run: bazel build site
       
-      - name: Upload static files as artifact
+      - name: Upload Pages artifact
         id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: bazel-bin/site/
+          path: bazel-bin/site
 
   deploy:
     needs: build

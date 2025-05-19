@@ -1,1 +1,25 @@
+# GitHub Pages settings
 markdown: GFM
+remote_theme: just-the-docs/just-the-docs
+source: bazel-bin/site
+# Site settings
+title: Bazel Rules Documentation
+description: API documentation for Bazel rules
+
+# Base URL for GitHub Pages
+baseurl: "/doc.bzl"
+url: "https://alexeagle.github.io"
+
+# Enable search
+search_enabled: true
+
+# Enable copy code button
+enable_copy_code_button: true
+
+# Navigation settings
+aux_links:
+  "View on GitHub":
+    - "https://github.com/alexeagle/doc.bzl"
+
+# Footer settings
+footer_content: "Copyright &copy; 2025 Alex Eagle. Content copyright original authors. Distributed under the Apache 2.0 license."
