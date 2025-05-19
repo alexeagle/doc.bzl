@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@buf/bazel_bazel.bufbuild_es": "2.0.0-20240806194025-8f5cf9629ba6.1",
+    "@buf/bazel_bazel.bufbuild_es": "2.0.0-20240828155419-7bb189088b0f.2",
     "@bufbuild/protobuf": "^2",
     "@bazel/runfiles": "^5"
   },
