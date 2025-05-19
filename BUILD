@@ -23,5 +23,5 @@ copy_to_directory(
     srcs = [
         "{}.{}.render".format(module, doc.replace(":", "_"))
         for module, doc in DOCS
-    ],
+    ] + ["_config.yml"],
 )
