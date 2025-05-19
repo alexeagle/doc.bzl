@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@bazel/runfiles':
         specifier: ^5
-        version: 5.0.0
+        version: 5.8.1
       '@buf/bazel_bazel.bufbuild_es':
         specifier: 2.0.0-20240806194025-8f5cf9629ba6.1
         version: 2.0.0-20240806194025-8f5cf9629ba6.1(@bufbuild/protobuf@2.0.0)
@@ -45,8 +45,8 @@ importers:
 
 packages:
 
-  /@bazel/runfiles@5.0.0:
-    resolution: {integrity: sha512-5LhgThr/vt8Ny8SvuW3yMhDrKLVhQkOwOqnzPSCh03YBZTPYYjc1/LOxl2UOWkhqyEgp9fU5MjzgSOIWLtXbqQ==}
+  /@bazel/runfiles@5.8.1:
+    resolution: {integrity: sha512-NDdfpdQ6rZlylgv++iMn5FkObC/QlBQvipinGLSOguTYpRywmieOyJ29XHvUilspwTFSILWpoE9CqMGkHXug1g==}
     dev: false
 
   /@buf/bazel_bazel.bufbuild_es@2.0.0-20240806194025-8f5cf9629ba6.1(@bufbuild/protobuf@2.0.0):
@@ -491,6 +491,7 @@ packages:
 
   /async@0.2.10:
     resolution: {integrity: sha512-eAkdoKxU6/LkKDBzLpT+t6Ff5EtfSF4wx1WfJiPEEV7WNLnDaRXk0oVysiEPm262roaachGexwUv94WhSgN5TQ==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -530,6 +531,7 @@ packages:
   /camelcase@1.2.1:
     resolution: {integrity: sha512-wzLkDa4K/mzI1OSITC+DUyjgIl/ETNHE9QvYgy6J6Jvqyyz4C0Xfd+lQhb19sX2jMpZV4IssUn0VDVmglV+s4g==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -580,6 +582,7 @@ packages:
   /decamelize@1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1056,6 +1059,7 @@ packages:
   /source-map@0.1.34:
     resolution: {integrity: sha512-yfCwDj0vR9RTwt3pEzglgb3ZgmcXHt6DjG3bjJvzPwTL+5zDQ2MhmSzAcTy0GTiQuCiriSWXvWM1/NhKdXuoQA==}
     engines: {node: '>=0.8.0'}
+    requiresBuild: true
     dependencies:
       amdefine: 1.0.1
     dev: true
@@ -1159,6 +1163,7 @@ packages:
 
   /uglify-to-browserify@1.0.2:
     resolution: {integrity: sha512-vb2s1lYx2xBtUgy+ta+b2J/GLVUR+wmpINwHePmPRhOsIVCG2wDzKJ0n14GslH1BifsqVzSOwQhRaCAsZ/nI4Q==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1183,6 +1188,7 @@ packages:
   /window-size@0.1.0:
     resolution: {integrity: sha512-1pTPQDKTdd61ozlKGNCjhNRd+KPmgLSGa3mZTHoOliaGcESD8G1PXhh7c1fgiPjVbNVfgy2Faw4BI8/m0cC8Mg==}
     engines: {node: '>= 0.8.0'}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1194,6 +1200,7 @@ packages:
   /wordwrap@0.0.2:
     resolution: {integrity: sha512-xSBsCeh+g+dinoBv3GAOWM4LcVVO68wLXRanibtBSdUvkGWQRGeE9P7IwU9EmDDi4jA6L44lz15CGMwdw9N5+Q==}
     engines: {node: '>=0.4.0'}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1204,6 +1211,7 @@ packages:
 
   /yargs@3.5.4:
     resolution: {integrity: sha512-5j382E4xQSs71p/xZQsU1PtRA2HXPAjX0E0DkoGLxwNASMOKX6A9doV1NrZmj85u2Pjquz402qonBzz/yLPbPA==}
+    requiresBuild: true
     dependencies:
       camelcase: 1.2.1
       decamelize: 1.2.0
