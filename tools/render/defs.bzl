@@ -1,0 +1,12 @@
+"""Macro to launch the render tool"""
+load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+    
+def render(module, doc):
+    js_run_binary(
+        name = "{}.{}.render".format(module, doc.replace(":", "_")),
+        srcs = ["@{}//{}.doc_extract".format(module, doc)],
+        args = ["$(rootpath {})".format("@{}//{}.doc_extract".format(module, doc))],
+        env = {"RUNFILES_DIR": "."},
+        stdout = "_{}.{}.md".format(module, doc.replace(":", "_")),
+        tool = "//tools/render",
+    )

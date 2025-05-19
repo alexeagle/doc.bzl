@@ -1,0 +1,8 @@
+common --nocheck_visibility
+
+# Java configuration
+build --java_runtime_version=remotejdk_11
+build --tool_java_runtime_version=remotejdk_11
+build --java_language_version=11
+common --@aspect_rules_ts//ts:skipLibCheck=always
+common --@aspect_rules_ts//ts:default_to_tsc_transpiler
