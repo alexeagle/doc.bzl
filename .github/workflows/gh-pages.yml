@@ -25,12 +25,13 @@ jobs:
       - uses: bazel-contrib/setup-bazel@0.8.0
 
       - name: Build documentation
-        run: bazel build github-pages
+        run: bazel build site
       
-      - uses: actions/upload-artifact@v4
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          name: github-pages
-          path: bazel-bin/github-pages.tar.gz
+          path: bazel-bin/site/
 
   deploy:
     needs: build
