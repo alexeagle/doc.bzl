@@ -27,7 +27,7 @@ single_version_override(
 
 git_override(
     module_name = "jq.bzl",
-    commit = "d836fc15c449222fddb3b3d6fc0d42e3984e8705", # v0.1.0
+    commit = "7e13b4f2d404e511d4630ba90f10b0ec95b65d82", # v0.1.0
     remote = "https://github.com/bazel-contrib/jq.bzl.git",
 )
 
