@@ -6,7 +6,7 @@ load("@npm//:defs.bzl", "npm_link_all_packages")
 npm_link_all_packages(name = "node_modules")
 
 DOCS = {
-    "JavaScript": [
+    "JavaScript / TypeScript": [
         ("aspect_rules_js", "js:defs"),
         ("aspect_rules_js", "npm:defs"),
         ("aspect_rules_swc", "swc:defs"),
@@ -55,7 +55,7 @@ DOCS = {
 ]
 
 expand_template(
-    name = "index",
+    name = "nav",
     substitutions = {
         "{{CONTENT}}": "\n".join([
             """
@@ -65,7 +65,7 @@ expand_template(
             """.format(category = category) + "\n".join([
                 """
                 <li>
-                    <a href="/doc.bzl/{module}/{doc}.md">{doc}</a>
+                    <a href="/doc.bzl/{module}/{doc}.md" target="content">{doc}</a>
                 </li>
                 """.format(module = module, doc = doc.replace(":", "/"))
                 for module, doc in doclist
@@ -76,6 +76,13 @@ expand_template(
             for category, doclist in DOCS.items()
         ])
     },
+    out = "nav.html",
+    template = "nav.tmpl.html",
+)
+
+expand_template(
+    name = "index",
+    substitutions = {},
     out = "index.html",
     template = "index.tmpl.html",
 )
@@ -89,5 +96,6 @@ copy_to_directory(
     ] + [
         "_config.yml",
         "index.html",
+        "nav.html",
     ],
 )

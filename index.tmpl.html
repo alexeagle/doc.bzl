@@ -1,108 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bazel Rules Documentation</title>
-    <style>
-        :root {
-            --primary-color: #43A047;
-            --text-color: #2C3E50;
-            --bg-color: #F8F9FA;
-            --link-color: #1976D2;
-            --header-bg: #FFFFFF;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background: var(--bg-color);
-        }
-        header {
-            background: var(--header-bg);
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        h1 {
-            color: var(--primary-color);
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        .subtitle {
-            color: var(--text-color);
-            opacity: 0.8;
-            margin-top: 0.5rem;
-        }
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .category {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        h2 {
-            color: var(--primary-color);
-            margin-top: 0;
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 0.5rem;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        li {
-            margin: 0.5rem 0;
-        }
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: var(--primary-color);
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-color);
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .category {
-                padding: 1rem;
-            }
-        }
-    </style>
 </head>
-<body>
-    <header>
-        <h1>Bazel Rules Documentation</h1>
-        <p class="subtitle">API documentation for Bazel rules</p>
-    </header>
-
-    <main>
-        {{CONTENT}}
-    </main>
-
-    <footer>
-        <p>Copyright © 2025 Alex Eagle. Distributed under the Apache 2.0 license.</p>
-        <p><a href="https://github.com/alexeagle/doc.bzl">View on GitHub</a></p>
-    </footer>
-</body>
+<frameset cols="300,*">
+    <frame name="nav" src="nav.html" />
+    <frame name="content" src="about:blank" />
+    <noframes>
+        <body>
+            <p>This site requires frames support.</p>
+        </body>
+    </noframes>
+</frameset>
 </html>
