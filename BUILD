@@ -11,6 +11,7 @@ DOCS = {
         ("aspect_rules_js", "npm:defs"),
         ("aspect_rules_swc", "swc:defs"),
         ("aspect_rules_ts", "ts:defs"),
+        ("aspect_rules_esbuild", "esbuild:defs"),
         ("aspect_rules_jasmine", "jasmine:defs"),
     ],
     "Bash / Shell": [
@@ -25,11 +26,23 @@ DOCS = {
     ],
     "Docker / OCI": [
         ("rules_oci", "oci:defs"),
+        ("rules_distroless", "distroless:defs"),
+        ("rules_apko", "apko:defs"),
     ],
-    "Linting": [
+    "Linting / Formatting": [
+        ("aspect_rules_lint", "format:defs"),
+        ("aspect_rules_lint", "lint:buf"),
+        ("aspect_rules_lint", "lint:checkstyle"),
+        ("aspect_rules_lint", "lint:eslint"),
+        ("aspect_rules_lint", "lint:keep_sorted"),
+        ("aspect_rules_lint", "lint:ktlint"),
+        ("aspect_rules_lint", "lint:lint_test"),
         ("aspect_rules_lint", "lint:ruff"),
+        ("aspect_rules_lint", "lint:shellcheck"),
+        ("aspect_rules_lint", "lint:stylelint"),   
     ],
     "Utilities": [
+        ("jq.bzl", "jq:jq"),
         ("tar.bzl", "tar:tar"),
         ("tar.bzl", "tar:mtree"),
     ],
