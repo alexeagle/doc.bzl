@@ -1,5 +1,5 @@
 load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
-load("@bazel_skylib//rules:write_file.bzl", "write_file")
+load("@aspect_bazel_lib//lib:expand_template.bzl", "expand_template")
 load("//tools/render:defs.bzl", "render")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 
@@ -13,14 +13,21 @@ DOCS = {
         ("aspect_rules_ts", "ts:defs"),
         ("aspect_rules_jasmine", "jasmine:defs"),
     ],
+    "Bash / Shell": [
+        ("rules_shell", "shell:rules_bzl"),
+        ("aspect_bazel_lib", "lib:bats"),
+    ],
+    "Protobuf / gRPC": [
+        # ("toolchains_protoc", "protoc:extensions"),
+    ],
+    "C / C++": [
+        # ("toolchains_llvm", "llvm:llvm"),
+    ],
     "Docker / OCI": [
         ("rules_oci", "oci:defs"),
     ],
     "Linting": [
         ("aspect_rules_lint", "lint:ruff"),
-    ],
-    "Testing": [
-        ("aspect_bazel_lib", "lib:bats"),
     ],
     "Utilities": [
         ("tar.bzl", "tar:tar"),
@@ -34,18 +41,30 @@ DOCS = {
     for module, doc in doclist
 ]
 
-write_file(
+expand_template(
     name = "index",
-    content = [
-        "# Bazel Rules Documentation",
-    ] + [
-        "## {}\n{}".format(category, "\n".join([
-            "- [{}](/doc.bzl/{}/{}.md)".format(doc, module, doc.replace(":", "/"))
-            for module, doc in doclist
-        ]))
-        for category, doclist in DOCS.items()
-    ],
-    out = "index.md",
+    substitutions = {
+        "{{CONTENT}}": "\n".join([
+            """
+            <div class="category">
+                <h2>{category}</h2>
+                <ul>
+            """.format(category = category) + "\n".join([
+                """
+                <li>
+                    <a href="/doc.bzl/{module}/{doc}.md">{doc}</a>
+                </li>
+                """.format(module = module, doc = doc.replace(":", "/"))
+                for module, doc in doclist
+            ]) + """
+            </ul>
+            </div>
+            """
+            for category, doclist in DOCS.items()
+        ])
+    },
+    out = "index.html",
+    template = "index.tmpl.html",
 )
 
 copy_to_directory(
@@ -55,7 +74,7 @@ copy_to_directory(
         for doclist in DOCS.values()
         for module, doc in doclist
     ] + [
-        "_config.yml", 
-        "index.md",
+        "_config.yml",
+        "index.html",
     ],
 )
