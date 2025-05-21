@@ -6,7 +6,7 @@ bazel_dep(name = "aspect_rules_jasmine", version = "2.0.0")
 bazel_dep(name = "aspect_rules_js", version = "2.3.7")
 bazel_dep(name = "aspect_rules_ts", version = "3.6.0")
 bazel_dep(name = "aspect_rules_swc", version = "2.4.2")
-bazel_dep(name = "jq.bzl", version = "0.0.0")
+bazel_dep(name = "jq.bzl", version = "0.1.0")
 bazel_dep(name = "rules_apko", version = "1.4.2")
 bazel_dep(name = "rules_distroless", version = "0.5.1")
 bazel_dep(name = "rules_nodejs", version = "6.4.0")
@@ -23,12 +23,6 @@ single_version_override(
         "//:patches/bazel_skylib.patch",
     ],
     version = "1.7.1",
-)
-
-git_override(
-    module_name = "jq.bzl",
-    commit = "d836fc15c449222fddb3b3d6fc0d42e3984e8705", # v0.1.0
-    remote = "https://github.com/bazel-contrib/jq.bzl.git",
 )
 
 # TEMP: pick up stardoc fixes
