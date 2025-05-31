@@ -36,6 +36,13 @@ git_override(
     remote = "https://github.com/aspect-build/rules_swc.git",
 )
 
+# TEMP: pick up stardoc fixes
+git_override(
+    module_name = "awk.bzl",
+    commit = "b1fe6d50805bfb045eda0374bce7f73772aed1c4",
+    remote = "https://github.com/alexeagle/awk.bzl.git",
+)
+
 pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm")
 
 # Allows developers to run the same pnpm version that Bazel manages
