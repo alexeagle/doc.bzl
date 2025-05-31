@@ -53,10 +53,12 @@ DOCS = {
     "Utilities": [
         ("aspect_bazel_lib", "lib:expand_template"),
         ("aspect_bazel_lib", "lib:write_source_files"),
+        ("awk.bzl", "awk:awk"),
         ("bazel_env.bzl", ":bazel_env"),
         ("jq.bzl", "jq:jq"),
         ("tar.bzl", "tar:tar"),
         ("tar.bzl", "tar:mtree"),
+        ("yq.bzl", "yq:yq"),
     ],
 }
 
