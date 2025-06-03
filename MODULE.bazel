@@ -32,7 +32,7 @@ single_version_override(
 # TEMP: pick up stardoc fixes
 git_override(
     module_name = "aspect_rules_swc",
-    commit = "ec7b6c3d988669543b89733d9666e8305fdd7c4d",
+    commit = "03ab674842ca0bc5f843f2bf3c6ed6d7db97ac23",
     remote = "https://github.com/aspect-build/rules_swc.git",
 )
 
