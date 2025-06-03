@@ -5,7 +5,7 @@ bazel_dep(name = "aspect_rules_lint", version = "1.4.2")
 bazel_dep(name = "aspect_rules_jasmine", version = "2.0.0")
 bazel_dep(name = "aspect_rules_js", version = "2.3.7")
 bazel_dep(name = "aspect_rules_ts", version = "3.6.0")
-bazel_dep(name = "aspect_rules_swc", version = "2.4.2")
+bazel_dep(name = "aspect_rules_swc", version = "2.4.3")
 bazel_dep(name = "awk.bzl", version = "0.1.2")
 bazel_dep(name = "bazel_env.bzl", version = "0.3.2")
 bazel_dep(name = "jq.bzl", version = "0.1.0")
@@ -27,13 +27,6 @@ single_version_override(
         "//:patches/bazel_skylib.patch",
     ],
     version = "1.7.1",
-)
-
-# TEMP: pick up stardoc fixes
-git_override(
-    module_name = "aspect_rules_swc",
-    commit = "ec7b6c3d988669543b89733d9666e8305fdd7c4d",
-    remote = "https://github.com/aspect-build/rules_swc.git",
 )
 
 # TEMP: pick up stardoc fixes
