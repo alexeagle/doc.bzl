@@ -9,6 +9,3 @@ baseurl: "/doc.bzl"
 # Build settings
 theme: minima
 markdown: GFM
-permalinks: pretty
-plugins:
-  - jekyll-feed
