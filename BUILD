@@ -28,10 +28,7 @@ DOCS = {
         # ("rules_rust", "rust:bzl_lib"),
     ],
     "Go": [
-        # FIXME
-        # ERROR: external/rules_go+/go/BUILD.bazel:45:12: in deps attribute of starlark_doc_extract rule @@rules_go+//go:def.doc_extract:
-        # missing bzl_library targets for Starlark module(s) @@rules_cc+//cc:find_cc_toolchain.bzl.
-        # ("rules_go", "go:def"),
+        ("rules_go", "go:def"),
     ],
     "C / C++": [
         # ("toolchains_llvm", "llvm:llvm"),
