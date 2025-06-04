@@ -101,9 +101,7 @@ copy_to_directory(
         for doclist in DOCS.values()
         for module, doc in doclist
     ] + [
-        "Gemfile",
-        "_config.yml",
         "index.html",
         "nav.html",
-    ],
+    ] + glob(["_layouts/*", "_includes/*"]),
 )
