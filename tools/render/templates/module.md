@@ -1,3 +1,8 @@
+---
+layout: default
+title: API Documentation
+---
+
 <!-- Generated with rules_docgen: http://github.com/aspect-build/rules_docgen -->
 
 {{{doc.moduleDocstring}}}

@@ -524,7 +524,7 @@
     "@@aspect_rules_ts~//ts:extensions.bzl%ext": {
       "general": {
         "bzlTransitiveDigest": "h1hftyFCdJgiHD9blfFcMAiEk5ltEoUdNkuHPIkg/hM=",
-        "usagesDigest": "dw2Xu+blk2ZanqBUYXLw4dfsUEcANI2vPffXIL/s1L4=",
+        "usagesDigest": "gtuSxSUqrlDBHmp+0uPch+x7/KJpHBgXBtMsElV9JKQ=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},

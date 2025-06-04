@@ -1,3 +1,5 @@
+module(name = "doc.bzl")
+
 bazel_dep(name = "bazel_skylib", version = "0.0.0")
 bazel_dep(name = "aspect_bazel_lib", version = "2.17.1")
 bazel_dep(name = "aspect_rules_esbuild", version = "0.22.1")
@@ -23,6 +25,7 @@ bazel_dep(name = "yq.bzl", version = "0.1.1")
 
 single_version_override(
     module_name = "bazel_skylib",
+    patch_strip = 1,
     patches = [
         # We need https://github.com/bazelbuild/bazel-skylib/pull/571
         "//:patches/bazel_skylib.patch",

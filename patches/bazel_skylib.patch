@@ -1,13 +1,7 @@
-commit e08d4d6900f15a242eac637dce29fd45a9a95385
-Author: Alex Eagle <alex@aspect.dev>
-Date:   Sun May 18 13:22:39 2025 -0700
-
-    feat: generate starlark_doc_extract targets
-    
-    Allows bzl_library targets to produce documentation without needing to load stardoc or add additional targets. Note, it would be better to do this with an aspect that visits the bzl_library graph, but the starlark_doc_extract rule is in Bazel java core, and so we cannot spawn actions using its Java code. It needs a main() entry point.
-
---- bzl_library.bzl
-+++ bzl_library.bzl
+diff --git a/bzl_library.bzl b/bzl_library.bzl
+index a139386..ea5c62b 100644
+--- a/bzl_library.bzl
++++ b/bzl_library.bzl
 @@ -45,7 +45,7 @@ def _bzl_library_impl(ctx):
          ),
      ]
@@ -17,7 +11,7 @@ Date:   Sun May 18 13:22:39 2025 -0700
      implementation = _bzl_library_impl,
      attrs = {
          "srcs": attr.label_list(
-@@ -105,3 +105,19 @@ Example:
+@@ -105,3 +105,20 @@ Example:
    ```
  """,
  )
@@ -32,9 +26,9 @@ Date:   Sun May 18 13:22:39 2025 -0700
 +    
 +    if hasattr(native, "starlark_doc_extract"):
 +        for i, src in enumerate(srcs):
++            extract_target = "{}.doc_extract{}".format(name, i if i > 0 else "")
 +            native.starlark_doc_extract(
-+                name = "{}.doc_extract{}".format(name, i if i > 0 else ""),
++                name = extract_target,
 +                src = src,
 +                deps = [name],
 +            )
-\ No newline at end of file
