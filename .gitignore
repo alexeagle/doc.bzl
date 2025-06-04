@@ -1,3 +1,5 @@
 /bazel-*
 node_modules
 MODULE.bazel.lock
+Gemfile.lock
+_site
