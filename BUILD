@@ -79,7 +79,7 @@ expand_template(
             """.format(category = category) + "\n".join([
                 """
                 <li>
-                    <a href="/doc.bzl/{module}/{doc}.md" target="content">{doc}</a>
+                    <a href="/doc.bzl/{module}/{doc}" target="content">{doc}</a>
                 </li>
                 """.format(module = module, doc = doc.replace(":", "/"))
                 for module, doc in doclist
