@@ -1,4 +1,5 @@
 # GitHub Pages settings
+source: bazel-bin/site
 title: Bazel Rules Documentation
 description: >- # this means to ignore newlines until "baseurl:"
   API Documentation for Bazel rules.

@@ -95,10 +95,11 @@ expand_template(
 )
 
 expand_template(
-    name = "index",
-    substitutions = {},
-    out = "index.html",
-    template = "index.tmpl.html",
+    name = "config",
+    substitutions = {
+        "bazel-bin/site": ".",
+    },
+    template = "_config.yml",
 )
 
 copy_to_directory(
@@ -109,7 +110,7 @@ copy_to_directory(
         for module, doc in doclist
     ] + [
         "Gemfile",
-        "_config.yml",
+        "config",
         "index.html",
         "nav.html",
     ],
