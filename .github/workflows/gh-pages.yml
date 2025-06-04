@@ -22,15 +22,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: bazel-contrib/setup-bazel@0.15.0
+      - run: bundle install
 
       - name: Build documentation
         run: bazel build site
       
+      - name: Render site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+        
       - name: Upload Pages artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: bazel-bin/site
+          path: ./_site
 
   deploy:
     needs: build
