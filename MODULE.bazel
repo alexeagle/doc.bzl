@@ -43,7 +43,7 @@ git_override(
 
 git_override(
     module_name = "rules_angular",
-    commit = "59d4dce6f41b0d956459922d483ae62abba7628b",
+    commit = "845ffcd8231832abdcfd6a47211b2feb4d178d7b",
     remote = "https://github.com/devversion/rules_angular.git",
 )
 
