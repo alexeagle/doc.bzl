@@ -86,38 +86,32 @@ function parseSourceMap(queryResult: QueryResult) {
 export async function main(argv: string[]): Promise<0 | 1> {
     // Side-effects to setup our template engine, https://handlebarsjs.com
     const { templates } = setupHandlebars();
-    let protoInputPath = argv[0];
-    if (protoInputPath.startsWith("../")) {
-        protoInputPath = "external/" + protoInputPath.substring(3);
-    }
-    const doc = fromBinary(ModuleInfoSchema, readFileSync(protoInputPath))
+    // Process all input files and merge their contents
+    const doc = argv.reduce((mergedDoc, protoInputPath) => {
+        if (protoInputPath.startsWith("../")) {
+            protoInputPath = "external/" + protoInputPath.substring(3);
+        }
+        const currentDoc = fromBinary(ModuleInfoSchema, readFileSync(protoInputPath));
+        
+        // Merge the current doc into the accumulated doc
+        return {
+            ...mergedDoc,
+            moduleDocstring: mergedDoc.moduleDocstring + "\n\n" + currentDoc.moduleDocstring,
+            ruleInfo: [...(mergedDoc.ruleInfo || []), ...(currentDoc.ruleInfo || [])],
+            funcInfo: [...(mergedDoc.funcInfo || []), ...(currentDoc.funcInfo || [])],
+            providerInfo: [...(mergedDoc.providerInfo || []), ...(currentDoc.providerInfo || [])],
+            aspectInfo: [...(mergedDoc.aspectInfo || []), ...(currentDoc.aspectInfo || [])],
+        };
+    }, { moduleDocstring: "", ruleInfo: [], funcInfo: [], providerInfo: [], aspectInfo: [] } as any)
     let moduleSourcemap = undefined;
     if (argv.length > 1) {
         const query = fromBinary(QueryResultSchema, readFileSync(argv[1]))
         moduleSourcemap = parseSourceMap(query);
     }
     
-    const sourcemapLookup = (bazelBinPath: string): SourceRef | undefined => {
-        if (!moduleSourcemap) return undefined;
-        const result =
-            moduleSourcemap.get(bazelBinPath) ||
-            moduleSourcemap.get(bazelBinPath + '.md') ||
-            moduleSourcemap.get(bazelBinPath + '.md_') ||
-            moduleSourcemap.get(bazelBinPath + '.tmp');
-        if (!result) {
-            throw new Error(
-                `all outputs should map back to a .bzl input, but no entry ${bazelBinPath} found in ${Array.from(
-                    moduleSourcemap.keys()
-                )}`
-            );
-        }
-        return result;
-    };
-    const sourcemap = sourcemapLookup(
-        'docs/tar-docgen.md'
-    );
+    
     const content = templates.module(
-        {doc, sourcemap},
+        {doc},
         {
             allowedProtoProperties: {
                 docString: true,

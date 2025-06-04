@@ -1,5 +1,5 @@
 diff --git a/bzl_library.bzl b/bzl_library.bzl
-index a139386..ea5c62b 100644
+index a139386..856ce55 100644
 --- a/bzl_library.bzl
 +++ b/bzl_library.bzl
 @@ -45,7 +45,7 @@ def _bzl_library_impl(ctx):
@@ -11,7 +11,7 @@ index a139386..ea5c62b 100644
      implementation = _bzl_library_impl,
      attrs = {
          "srcs": attr.label_list(
-@@ -105,3 +105,20 @@ Example:
+@@ -105,3 +105,26 @@ Example:
    ```
  """,
  )
@@ -25,6 +25,7 @@ index a139386..ea5c62b 100644
 +    )
 +    
 +    if hasattr(native, "starlark_doc_extract"):
++        targets = []
 +        for i, src in enumerate(srcs):
 +            extract_target = "{}.doc_extract{}".format(name, i if i > 0 else "")
 +            native.starlark_doc_extract(
@@ -32,3 +33,8 @@ index a139386..ea5c62b 100644
 +                src = src,
 +                deps = [name],
 +            )
++            targets.append(extract_target)
++        native.filegroup(
++            name = "{}.docs-as-proto".format(name),
++            srcs = targets,
++        )

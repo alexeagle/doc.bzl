@@ -8,6 +8,8 @@ npm_link_all_packages(name = "node_modules")
 DOCS = {
     "JavaScript / TypeScript": [
         ("aspect_rules_js", "js:defs"),
+        ("aspect_rules_js", "js:libs"),
+        ("aspect_rules_js", "js:providers"),
         ("aspect_rules_js", "npm:defs"),
         ("aspect_rules_swc", "swc:defs"),
         ("aspect_rules_ts", "ts:defs"),
@@ -79,9 +81,9 @@ expand_template(
             """.format(category = category) + "\n".join([
                 """
                 <li>
-                    <a href="/doc.bzl/{module}/{doc}" target="content">{doc}</a>
+                    <a href="/doc.bzl/{module}/{doc_url}" target="content">@{module}//{doc}</a>
                 </li>
-                """.format(module = module, doc = doc.replace(":", "/"))
+                """.format(module = module, doc = doc, doc_url = doc.replace(":", "/"))
                 for module, doc in doclist
             ]) + """
             </ul>

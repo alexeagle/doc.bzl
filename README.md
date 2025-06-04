@@ -5,7 +5,7 @@ Using the Bazel Central Registry as a source, Renovate automatically updates the
 
 We patch the `bzl_library` targets to include `native.starlark_doc_extract` rules, enabling the extraction of documentation directly from Starlark sources.
 A custom build target then uses our renderer (a small TypeScript program in this repo) to convert the protobufs into structured Markdown files, one per ruleset.
-Finally, a GitHub Actions workflow publishes these Markdown files to a GitHub Pages site, making the documentation easily accessible and always up to date.
+Finally, a GitHub Actions workflow publishes a Jekyll website to GitHub Pages, making the documentation easily accessible and always up to date.
 
 ## Future work
 
@@ -15,26 +15,14 @@ That way older versions of a module have docgen available too, not just the late
 
 This could be used as a datasource for https://github.com/bazel-contrib/bcr-ui to add API docs for the rulesets it displays, just like it gets BCR data.
 
-## Data flow
+## Developing
 
-```mermaid
-graph TD
-    BCR["Bazel Central Registry"]
-    Renovate["Renovate"]
-    Module["MODULE.bazel"]
-    Patch["Patch bzl_library"]
-    Extract["native.starlark_doc_extract"]
-    Target["Custom target with renderer"]
-    Markdown["Markdown per ruleset"]
-    GHA["GitHub Actions Automation"]
-    Pages["GitHub Pages Site"]
+```
+% ibazel build site
+```
 
-    BCR --> Renovate
-    Renovate --> Module
-    Module --> Patch
-    Patch --> Extract
-    Extract --> Target
-    Target --> Markdown
-    Markdown --> GHA
-    GHA --> Pages
+in another terminal:
+
+```
+% bundle exec jekyll serve
 ```

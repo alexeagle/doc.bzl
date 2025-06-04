@@ -96,7 +96,7 @@ load("{{loadTgt}}", "{{macroLoadSymbol ../functionName}}")
 
 {{#if this.return.docString}}Returns: {{this.return.docString}}{{/if}}
 
-**{{#if this.deprecated.docString}}Deprecated: {{this.deprecated.docString}} {{/if}}**
+{{#if this.deprecated.docString}}**Deprecated: {{this.deprecated.docString}}**{{/if}}
 
 {{/each}}
 {{/each}}
