@@ -13,6 +13,9 @@ DOCS = {
         ("aspect_rules_ts", "ts:defs"),
         ("aspect_rules_esbuild", "esbuild:defs"),
         ("aspect_rules_jasmine", "jasmine:defs"),
+        ("rules_angular", "src/architect:ng_application"),
+        ("rules_angular", "src/architect:ng_library"),
+        ("rules_angular", "src/architect:ng_test"),
     ],
     "Bash / Shell": [
         ("rules_shell", "shell:rules_bzl"),
