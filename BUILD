@@ -16,8 +16,13 @@ DOCS = {
         ("aspect_rules_esbuild", "esbuild:defs"),
         ("aspect_rules_jasmine", "jasmine:defs"),
         ("rules_angular", "src/architect:ng_application"),
+        ("rules_angular", "src/architect:ng_config"),
         ("rules_angular", "src/architect:ng_library"),
         ("rules_angular", "src/architect:ng_test"),
+        ("rules_angular", "src/architect:utils"),
+    ],
+    "Python": [
+        ("aspect_rules_py", "py:defs"),
     ],
     "Bash / Shell": [
         ("rules_shell", "shell:rules_bzl"),
@@ -36,7 +41,15 @@ DOCS = {
         # ("toolchains_llvm", "llvm:llvm"),
     ],
     "Docker / OCI": [
+        # ("rules_oci", "cosign:defs"), # errors
+        # ("rules_oci", "cosign:repositories"),
+        ("rules_oci", "cosign:toolchain"),
         ("rules_oci", "oci:defs"),
+        # ("rules_oci", "oci:dependencies"), # errors
+        # ("rules_oci", "oci:extensions"),
+        ("rules_oci", "oci:pull"),
+        # ("rules_oci", "oci:repositories"), # errors
+        ("rules_oci", "oci:toolchain"),
         ("rules_distroless", "distroless:defs"),
         ("rules_apko", "apko:defs"),
     ],

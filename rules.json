@@ -1,0 +1,246 @@
+{
+  "$schema": "./rules.schema.json",
+  "modules": [
+    {
+      "name": "aspect_bazel_lib",
+      "bzl_library_targets": [
+        "lib:base64",
+        "lib:bats",
+        "lib:bazelrc_presets",
+        "lib:copy_directory",
+        "lib:copy_file",
+        "lib:copy_to_bin",
+        "lib:copy_to_directory",
+        "lib:diff_test",
+        "lib:directory_path",
+        "lib:docs",
+        "lib:expand_make_vars",
+        "lib:expand_template",
+        "lib:extensions",
+        "lib:glob_match",
+        "lib:host_repo",
+        "lib:jq",
+        "lib:lists",
+        "lib:output_files",
+        "lib:params_file",
+        "lib:paths",
+        "lib:platform_utils",
+        "lib:repo_utils",
+        "lib:repositories",
+        "lib:resource_sets",
+        "lib:run_binary",
+        "lib:stamping",
+        "lib:strings",
+        "lib:tar",
+        "lib:testing",
+        "lib:transitions",
+        "lib:utils",
+        "lib:windows_utils",
+        "lib:write_source_files",
+        "lib:yq",
+        "tools:integrity",
+        "tools:version"
+      ]
+    },
+    {
+      "name": "aspect_rules_esbuild",
+      "bzl_library_targets": [
+        "esbuild:defs",
+        "esbuild:repositories",
+        "esbuild:toolchain"
+      ]
+    },
+    {
+      "name": "aspect_rules_jasmine",
+      "bzl_library_targets": [
+        ".github/workflows:deps",
+        "jasmine:defs",
+        "jasmine:dependencies"
+      ]
+    },
+    {
+      "name": "aspect_rules_js",
+      "bzl_library_targets": [
+        "contrib/nextjs:defs",
+        "js:defs",
+        "js:libs",
+        "js:providers",
+        "js:repositories",
+        "npm:defs",
+        "npm:libs",
+        "npm:providers",
+        "npm:repositories"
+      ]
+    },
+    {
+      "name": "aspect_rules_lint",
+      "bzl_library_targets": [
+        "format:defs",
+        "format:repositories",
+        "lint:buf",
+        "lint:checkstyle",
+        "lint:clang_tidy",
+        "lint:eslint",
+        "lint:flake8",
+        "lint:keep_sorted",
+        "lint:ktlint",
+        "lint:lint_test",
+        "lint:pmd",
+        "lint:ruff",
+        "lint:ruff_versions",
+        "lint:shellcheck",
+        "lint:spotbugs",
+        "lint:stylelint",
+        "lint:vale",
+        "lint:vale_library",
+        "lint:vale_versions"
+      ]
+    },
+    {
+      "name": "aspect_rules_py",
+      "bzl_library_targets": [
+        "py:defs",
+        "py:repositories",
+        "py/private/py_venv:py_venv",
+        "py/private/toolchain:autodetecting",
+        "py/private/toolchain:tools",
+        "py/private/toolchain:types",
+        "py/unstable:defs"
+      ]
+    },
+    {
+      "name": "aspect_rules_swc",
+      "bzl_library_targets": [
+        "examples/source_map_support:defs",
+        "swc:defs",
+        "swc:dependencies",
+        "swc:extensions",
+        "swc:providers",
+        "swc:repositories",
+        "swc:toolchain"
+      ]
+    },
+    {
+      "name": "aspect_rules_ts",
+      "bzl_library_targets": [
+        "ts:defs",
+        "ts:extensions",
+        "ts:proto",
+        "ts:repositories"
+      ]
+    },
+    {
+      "name": "awk.bzl",
+      "bzl_library_targets": [
+        "awk:awk"
+      ]
+    },
+    {
+      "name": "bazel_env.bzl",
+      "bzl_library_targets": [
+        ":bazel_env"
+      ]
+    },
+    {
+      "name": "jq.bzl",
+      "bzl_library_targets": [
+        "jq:jq"
+      ]
+    },
+    {
+      "name": "rules_apko",
+      "bzl_library_targets": [
+        "apko:defs",
+        "apko:extensions",
+        "apko:repositories",
+        "apko:toolchain",
+        "apko:translate_lock",
+        "apko/private/range:bazelrc"
+      ]
+    },
+    {
+      "name": "rules_distroless",
+      "bzl_library_targets": [
+        "apt:apt",
+        "apt:defs",
+        "apt:extensions",
+        "distroless:defs",
+        "distroless:dependencies",
+        "distroless:toolchains",
+        "distroless/tests:asserts"
+      ]
+    },
+    {
+      "name": "rules_go",
+      "bzl_library_targets": [
+        "docs/go/core:rules",
+        "docs/go/extras:extras",
+        "extras:gomock",
+        "go:def",
+        "go:deps",
+        "go/platform:apple",
+        "go/platform:list",
+        "go/private/actions:archive",
+        "go/private/actions:binary",
+        "go/private/actions:compilepkg",
+        "go/private/actions:link",
+        "go/private/actions:stdlib",
+        "go/private/actions:utils",
+        "go/private/rules:binary",
+        "go/private/rules:cgo",
+        "go/private/rules:cross",
+        "go/private/rules:info",
+        "go/private/rules:library",
+        "go/private/rules:nogo",
+        "go/private/rules:sdk",
+        "go/private/rules:source",
+        "go/private/rules:stdlib",
+        "go/private/rules:test",
+        "go/private/rules:transition",
+        "go/private/rules:wrappers",
+        "go/private/skylib/lib:versions",
+        "go/private/tools:path",
+        "go/toolchain:toolchains",
+        "go/tools/bazel_testing:def",
+        "proto:compiler",
+        "proto:def",
+        "proto:gogo",
+        "proto/wkt:well_known_types"
+      ]
+    },
+    {
+      "name": "rules_oci",
+      "bzl_library_targets": [
+        "cosign:defs",
+        "cosign:repositories",
+        "cosign:toolchain",
+        "oci:defs",
+        "oci:dependencies",
+        "oci:extensions",
+        "oci:pull",
+        "oci:repositories",
+        "oci:toolchain"
+      ]
+    },
+    {
+      "name": "rules_shell",
+      "bzl_library_targets": [
+        "shell:rules_bzl"
+      ]
+    },
+    {
+      "name": "tar.bzl",
+      "bzl_library_targets": [
+        ":tar",
+        "tar:mtree",
+        "tar:tar"
+      ]
+    },
+    {
+      "name": "yq.bzl",
+      "bzl_library_targets": [
+        "yq:yq"
+      ]
+    }
+  ]
+}

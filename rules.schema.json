@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["modules"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "The JSON Schema to validate against"
+    },
+    "modules": {
+      "type": "array",
+      "description": "Collection of Bazel rule sets to document",
+      "items": {
+        "type": "object",
+        "required": ["name", "bzl_library_targets"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the ruleset module on BCR"
+          },
+          "bzl_library_targets": {
+            "type": "array",
+            "description": "List of bzl_library targets to document, populated by running ./tools/list_bzl_libraries.sh",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
