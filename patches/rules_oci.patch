@@ -1,0 +1,79 @@
+diff --git a/cosign/repositories.bzl b/cosign/repositories.bzl
+index e949c43..550baca 100644
+--- a/cosign/repositories.bzl
++++ b/cosign/repositories.bzl
+@@ -46,6 +46,7 @@ def cosign_register_toolchains(name, register = True):
+     - create a repository exposing toolchains for each platform like "oci_platforms"
+     - register a toolchain pointing at each platform
+     Users can avoid this macro and do these steps themselves, if they want more control.
++
+     Args:
+         name: base name for cosign repository, like "oci_cosign"
+     """
+diff --git a/oci/BUILD.bazel b/oci/BUILD.bazel
+index 57e1be5..9121f76 100644
+--- a/oci/BUILD.bazel
++++ b/oci/BUILD.bazel
+@@ -1,3 +1,4 @@
++load("@aspect_bazel_lib//lib:utils.bzl", bazel_lib_utils = "utils")
+ load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+ 
+ exports_files(
+@@ -26,9 +27,11 @@ bzl_library(
+         "//oci/private:load",
+         "//oci/private:toolchains_repo",
+         "//oci/private:versions",
++        "@aspect_bazel_lib//lib:repositories",
++        "@bazel_features//:deps",
+         "@bazel_tools//tools/build_defs/repo:http.bzl",
+         "@bazel_tools//tools/build_defs/repo:utils.bzl",
+-    ],
++    ] + ["@bazel_tools//tools/build_defs/repo:cache.bzl"] if bazel_lib_utils.is_bazel_7_or_greater() else [],
+ )
+ 
+ bzl_library(
+@@ -65,7 +68,7 @@ bzl_library(
+     deps = [
+         "@bazel_tools//tools/build_defs/repo:http.bzl",
+         "@bazel_tools//tools/build_defs/repo:utils.bzl",
+-    ],
++    ] + ["@bazel_tools//tools/build_defs/repo:cache.bzl"] if bazel_lib_utils.is_bazel_7_or_greater() else [],
+ )
+ 
+ bzl_library(
+diff --git a/oci/repositories.bzl b/oci/repositories.bzl
+index 733188b..b55593f 100644
+--- a/oci/repositories.bzl
++++ b/oci/repositories.bzl
+@@ -102,6 +102,7 @@ def oci_register_toolchains(name, register = True):
+     - create a repository exposing toolchains for each platform like "container_platforms"
+     - register a toolchain pointing at each platform
+     Users can avoid this macro and do these steps themselves, if they want more control.
++
+     Args:
+         name: base name for all created repos, like "oci"
+         register: whether to call through to native.register_toolchains.
+commit db89947acca0ccdf8e1d5d8f53e449822a0f55e2
+Author: Sergei Shirshanov <47268320+smertnik3sh@users.noreply.github.com>
+Date:   Mon May 26 22:33:37 2025 +0200
+
+    Add missing dependency to //cosign:defs (#810)
+    
+    Co-authored-by: Sergei Shirshanov <heretic@nebius.com>
+
+diff --git a/cosign/BUILD.bazel b/cosign/BUILD.bazel
+index daaa911..82e1226 100644
+--- a/cosign/BUILD.bazel
++++ b/cosign/BUILD.bazel
+@@ -9,7 +9,10 @@ bzl_library(
+     name = "defs",
+     srcs = ["defs.bzl"],
+     visibility = ["//visibility:public"],
+-    deps = ["//cosign/private:sign"],
++    deps = [
++        "//cosign/private:attest",
++        "//cosign/private:sign",
++    ],
+ )
+ 
+ bzl_library(
