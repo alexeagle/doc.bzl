@@ -1,0 +1,27 @@
+diff --git a/esbuild/BUILD.bazel b/esbuild/BUILD.bazel
+index 9d54485..ad9fac7 100644
+--- a/esbuild/BUILD.bazel
++++ b/esbuild/BUILD.bazel
+@@ -29,8 +29,10 @@ bzl_library(
+     deps = [
+         "//esbuild/private:toolchains_repo",
+         "//esbuild/private:versions",
++        "@aspect_rules_js//npm:repositories",
+         "@bazel_tools//tools/build_defs/repo:http.bzl",
+         "@bazel_tools//tools/build_defs/repo:utils.bzl",
++        "@bazel_skylib//lib:versions",
+     ] + (["@bazel_tools//tools/build_defs/repo:cache.bzl"] if is_bazel_7_or_greater() else []),
+ )
+ 
+diff --git a/esbuild/repositories.bzl b/esbuild/repositories.bzl
+index a032749..7c672e7 100644
+--- a/esbuild/repositories.bzl
++++ b/esbuild/repositories.bzl
+@@ -95,6 +95,7 @@ def esbuild_register_toolchains(name, esbuild_version, register = True, **kwargs
+     - create a repository exposing toolchains for each platform like "esbuild_platforms"
+     - register a toolchain pointing at each platform
+     Users can avoid this macro and do these steps themselves, if they want more control.
++
+     Args:
+         name: base name for all created repos, like "esbuild0_14"
+         esbuild_version: a supported version like "0.14.36"

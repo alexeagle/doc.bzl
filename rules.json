@@ -43,6 +43,14 @@
       ]
     },
     {
+      "name": "aspect_rules_esbuild",
+      "bzl_library_targets": [
+        "esbuild:defs",
+        "esbuild:repositories",
+        "esbuild:toolchain"
+      ]
+    },
+    {
       "name": "aspect_rules_js",
       "bzl_library_targets": [
         "contrib/nextjs:defs",
@@ -54,6 +62,30 @@
         "npm:libs",
         "npm:providers",
         "npm:repositories"
+      ]
+    },
+    {
+      "name": "aspect_rules_lint",
+      "bzl_library_targets": [
+        "format:defs",
+        "format:repositories",
+        "lint:buf",
+        "lint:checkstyle",
+        "lint:clang_tidy",
+        "lint:eslint",
+        "lint:flake8",
+        "lint:keep_sorted",
+        "lint:ktlint",
+        "lint:lint_test",
+        "lint:pmd",
+        "lint:ruff",
+        "lint:ruff_versions",
+        "lint:shellcheck",
+        "lint:spotbugs",
+        "lint:stylelint",
+        "lint:vale",
+        "lint:vale_library",
+        "lint:vale_versions"
       ]
     },
     {
