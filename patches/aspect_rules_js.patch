@@ -1,0 +1,30 @@
+diff --git a/js/private/maybe.bzl b/js/private/maybe.bzl
+deleted file mode 100644
+index b6e89fee..00000000
+--- a/js/private/maybe.bzl
++++ /dev/null
+@@ -1,7 +0,0 @@
+-"maybe utilities"
+-
+-load("@bazel_tools//tools/build_defs/repo:http.bzl", _http_archive = "http_archive")
+-load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
+-
+-def maybe_http_archive(**kwargs):
+-    maybe(_http_archive, **kwargs)
+diff --git a/js/repositories.bzl b/js/repositories.bzl
+index 18126eda..e2bc3f27 100644
+--- a/js/repositories.bzl
++++ b/js/repositories.bzl
+@@ -4,7 +4,11 @@ These are needed for local dev, and users must install them as well.
+ See https://docs.bazel.build/versions/main/skylark/deploying.html#dependencies
+ """
+ 
+-load("//js/private:maybe.bzl", http_archive = "maybe_http_archive")
++load("@bazel_tools//tools/build_defs/repo:http.bzl", _http_archive = "http_archive")
++load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
++
++def http_archive(**kwargs):
++    maybe(_http_archive, **kwargs)
+ 
+ # buildifier: disable=function-docstring
+ def rules_js_dependencies():

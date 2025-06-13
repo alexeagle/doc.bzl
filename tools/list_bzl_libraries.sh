@@ -4,20 +4,18 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-if [ $# -ne 1 ]; then
-    echo "Error: Please provide a ruleset argument"
-    echo "Usage: $0 <ruleset>"
-    exit 1
-fi
+# Get list of rulesets from bazel mod deps
+rulesets=$(bazel mod deps doc.bzl --depth=1 --output=json | jq -r '.dependencies[].apparentName')
 
-ruleset=$1
+for ruleset in $rulesets; do
+    echo "Processing $ruleset..."
 
 # Get public bzl_library targets
+# Get all targets first
 labels=$(bazel 2>/dev/null query --output=label --keep_going \
     "kind(\"bzl_library rule\", @${ruleset}//...)" | \
     grep -v '/private' | grep -v '/tests' \
-    || true
-)
+    || true)
 
 # Strip prefix and convert to JSON array
 json_labels=$(printf '%s\n' "$labels" | sed 's|@'"$ruleset"'//||' | jq -R . | jq -s .)
@@ -43,3 +41,6 @@ if ! mv rules.json.tmp rules.json; then
 fi
 
 echo "Successfully updated rules.json"
+done
+
+echo "All rulesets processed successfully"

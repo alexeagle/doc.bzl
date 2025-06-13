@@ -1,0 +1,65 @@
+diff --git a/multitool/BUILD.bazel b/multitool/BUILD.bazel
+index 51fd426..f20b4a9 100644
+--- a/multitool/BUILD.bazel
++++ b/multitool/BUILD.bazel
+@@ -3,11 +3,13 @@ load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+ bzl_library(
+     name = "extension",
+     srcs = ["extension.bzl"],
++    deps = ["//multitool/private:multitool"],
+     visibility = ["//visibility:public"],
+ )
+ 
+ bzl_library(
+     name = "multitool",
+     srcs = ["multitool.bzl"],
++    deps = ["//multitool/private:multitool"],
+     visibility = ["//visibility:public"],
+ )
+diff --git a/multitool/multitool.bzl b/multitool/multitool.bzl
+index b99f067..d3ebd62 100644
+--- a/multitool/multitool.bzl
++++ b/multitool/multitool.bzl
+@@ -5,12 +5,12 @@ load("//multitool/private:multitool.bzl", "workspace_hub")
+ def multitool(name, lockfile = None, lockfiles = None):
+     """(non-bzlmod) Create a multitool hub and register its toolchains.
+ 
++    Note: exactly one of lockfile or lockfiles may be set.
++    
+     Args:
+         name: resulting "hub" repo name to load tools from
+         lockfile: a label for a lockfile, see /lockfile.schema.json
+         lockfiles: a list of labels of multiple lockfiles
+-
+-    Note: exactly one of lockfile or lockfiles may be set.
+     """
+     if (not lockfile and not lockfiles) or (lockfile and lockfiles):
+         fail("Exactly one of lockfile and lockfiles must be set")
+diff --git a/multitool/private/BUILD.bazel b/multitool/private/BUILD.bazel
+index 2f32f09..9199673 100644
+--- a/multitool/private/BUILD.bazel
++++ b/multitool/private/BUILD.bazel
+@@ -8,5 +8,23 @@ exports_files([
+ bzl_library(
+     name = "multitool",
+     srcs = ["multitool.bzl"],
++    deps = [
++        "@bazel_features//:features",
++        "@bazel_tools//tools/build_defs/repo:utils.bzl",
++        ":lockfile",
++        ":templates",
++    ],
++    visibility = ["//multitool:__subpackages__"],
++)
++
++bzl_library(
++    name = "lockfile",
++    srcs = ["lockfile.bzl"],
++    visibility = ["//multitool:__subpackages__"],
++)
++
++bzl_library(
++    name = "templates",
++    srcs = ["templates.bzl"],
+     visibility = ["//multitool:__subpackages__"],
+ )

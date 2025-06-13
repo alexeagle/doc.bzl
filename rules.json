@@ -16,7 +16,7 @@
         "lib:docs",
         "lib:expand_make_vars",
         "lib:expand_template",
-        
+        "lib:extensions",
         "lib:glob_match",
         "lib:host_repo",
         "lib:jq",
@@ -40,6 +40,107 @@
         "lib:yq",
         "tools:integrity",
         "tools:version"
+      ]
+    },
+    {
+      "name": "aspect_rules_js",
+      "bzl_library_targets": [
+        "contrib/nextjs:defs",
+        "js:defs",
+        "js:libs",
+        "js:providers",
+        "js:repositories",
+        "npm:defs",
+        "npm:libs",
+        "npm:providers",
+        "npm:repositories"
+      ]
+    },
+    {
+      "name": "aspect_rules_ts",
+      "bzl_library_targets": [
+        "ts:defs",
+        "ts:extensions",
+        "ts:proto",
+        "ts:repositories"
+      ]
+    },
+    {
+      "name": "awk.bzl",
+      "bzl_library_targets": [
+        "awk:awk"
+      ]
+    },
+    {
+      "name": "bazel_env.bzl",
+      "bzl_library_targets": [
+        ":bazel_env"
+      ]
+    },
+    {
+      "name": "bazel_skylib",
+      "bzl_library_targets": [
+        ":bzl_library",
+        ":lib",
+        ":version",
+        ":workspace",
+        "lib:collections",
+        "lib:dicts",
+        "lib:modules",
+        "lib:new_sets",
+        "lib:old_sets",
+        "lib:partial",
+        "lib:paths",
+        "lib:selects",
+        "lib:sets",
+        "lib:shell",
+        "lib:structs",
+        "lib:subpackages",
+        "lib:types",
+        "lib:unittest",
+        "lib:versions",
+        "rules:analysis_test",
+        "rules:build_test",
+        "rules:common_settings",
+        "rules:copy_directory",
+        "rules:copy_file",
+        "rules:diff_test",
+        "rules:expand_template",
+        "rules:native_binary",
+        "rules:run_binary",
+        "rules:select_file",
+        "rules:write_file",
+        "rules/directory:directory",
+        "rules/directory:glob",
+        "rules/directory:providers",
+        "rules/directory:subdirectory"
+      ]
+    },
+    {
+      "name": "jq.bzl",
+      "bzl_library_targets": [
+        "jq:jq"
+      ]
+    },
+    {
+      "name": "rules_multitool",
+      "bzl_library_targets": [
+        "multitool:extension",
+        "multitool:multitool"
+      ]
+    },
+    {
+      "name": "tar.bzl",
+      "bzl_library_targets": [
+        ":tar",
+        "tar:mtree",
+        "tar:tar"
+      ]
+    },
+    {
+      "name": "yq.bzl",
+      "bzl_library_targets": [
+        "yq:yq"
       ]
     }
   ]

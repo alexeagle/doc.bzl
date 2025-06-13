@@ -1,0 +1,4 @@
+@aspect_bazel_lib//lib:extensions
+@bazel_skylib//lib:old_sets
+@bazel_skylib//:workspace
+@bazel_skylib//:lib
