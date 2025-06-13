@@ -57,6 +57,18 @@
       ]
     },
     {
+      "name": "aspect_rules_swc",
+      "bzl_library_targets": [
+        "examples/source_map_support:defs",
+        "swc:defs",
+        "swc:dependencies",
+        "swc:extensions",
+        "swc:providers",
+        "swc:repositories",
+        "swc:toolchain"
+      ]
+    },
+    {
       "name": "aspect_rules_ts",
       "bzl_library_targets": [
         "ts:defs",
@@ -127,6 +139,12 @@
       "bzl_library_targets": [
         "multitool:extension",
         "multitool:multitool"
+      ]
+    },
+    {
+      "name": "rules_shell",
+      "bzl_library_targets": [
+        "shell:rules_bzl"
       ]
     },
     {
