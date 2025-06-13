@@ -15,7 +15,9 @@ ruleset=$1
 # Get public bzl_library targets
 labels=$(bazel 2>/dev/null query --output=label --keep_going \
     "kind(\"bzl_library rule\", @${ruleset}//...)" | \
-    grep -v '/private:' || true)
+    grep -v '/private' | grep -v '/tests' \
+    || true
+)
 
 # Strip prefix and convert to JSON array
 json_labels=$(printf '%s\n' "$labels" | sed 's|@'"$ruleset"'//||' | jq -R . | jq -s .)

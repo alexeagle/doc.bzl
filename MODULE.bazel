@@ -71,3 +71,6 @@ rules_ts_ext = use_extension(
 )
 rules_ts_ext.deps()
 use_repo(rules_ts_ext, "npm_typescript")
+
+rules_db = use_repo_rule("//:rules.bzl", "rules_db")
+rules_db(name = "rules___db", database = "//:rules.json")
