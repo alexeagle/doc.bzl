@@ -16,6 +16,7 @@ jobs:
       - run: ./tools/list_bzl_libraries.sh
       - uses: peter-evans/create-pull-request@v7
         with:
+            token: ${{ secrets.PAT }}
             commit-message: 'run ./tools/list_bzl_libraries'
             title: 'chore(deps): update bzl_library database'
             body: |
