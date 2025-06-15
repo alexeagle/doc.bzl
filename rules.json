@@ -202,6 +202,13 @@
       ]
     },
     {
+      "name": "with_cfg.bzl",
+      "bzl_library_targets": [
+        ":with_cfg",
+        "with_cfg:defs"
+      ]
+    },
+    {
       "name": "yq.bzl",
       "bzl_library_targets": [
         "yq:yq"
