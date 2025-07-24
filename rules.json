@@ -43,6 +43,14 @@
       ]
     },
     {
+      "name": "aspect_rules_cypress",
+      "bzl_library_targets": [
+        "cypress:defs",
+        "cypress:repositories",
+        "cypress:toolchain"
+      ]
+    },
+    {
       "name": "aspect_rules_esbuild",
       "bzl_library_targets": [
         "esbuild:defs",
