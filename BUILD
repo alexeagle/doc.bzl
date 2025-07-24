@@ -48,4 +48,5 @@ copy_to_directory(
         "index.html",
         "nav.html",
     ] + glob(["_layouts/*", "_includes/*"]),
+    testonly = True,
 )

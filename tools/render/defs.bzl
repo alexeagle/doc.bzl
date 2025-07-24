@@ -9,4 +9,5 @@ def render(module, doc):
         env = {"RUNFILES_DIR": "."},
         stdout = "{}/{}.md".format(module, doc.lstrip(":").replace(":", "/")),
         tool = "//tools/render",
+        testonly = True,
     )

@@ -14,14 +14,8 @@
     "https://bcr.bazel.build/modules/ape/1.0.1/source.json": "96bc5909d1e3ccc4203272815ef874dbfd99651e240c05049f12193d16c1110b",
     "https://bcr.bazel.build/modules/apple_support/1.5.0/MODULE.bazel": "50341a62efbc483e8a2a6aec30994a58749bd7b885e18dd96aa8c33031e558ef",
     "https://bcr.bazel.build/modules/apple_support/1.5.0/source.json": "eb98a7627c0bc486b57f598ad8da50f6625d974c8f723e9ea71bd39f709c9862",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.11.0/MODULE.bazel": "cb1ba9f9999ed0bc08600c221f532c1ddd8d217686b32ba7d45b0713b5131452",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.14.0/MODULE.bazel": "2b31ffcc9bdc8295b2167e07a757dbbc9ac8906e7028e5170a3708cecaac119f",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.19.2/MODULE.bazel": "30dfabbfae0139b1f0036e01c201dd4c0167da3017f0b7ef3820d78e07622989",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.19.2/source.json": "89d8e5d7088ae33972733099b756dae71e1647ae684ab50b26adfa853c506d01",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.7.2/MODULE.bazel": "780d1a6522b28f5edb7ea09630748720721dfe27690d65a2d33aa7509de77e07",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.7.7/MODULE.bazel": "491f8681205e31bb57892d67442ce448cda4f472a8e6b3dc062865e29a64f89c",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.8.1/MODULE.bazel": "812d2dd42f65dca362152101fbec418029cc8fd34cbad1a2fde905383d705838",
-    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.9.3/MODULE.bazel": "66baf724dbae7aff4787bf2245cc188d50cb08e07789769730151c0943587c14",
+    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.20.0/MODULE.bazel": "c5565bac49e1973227225b441fad1c938d498d83df62dc5da95b2fab0f0626a2",
+    "https://bcr.bazel.build/modules/aspect_bazel_lib/2.20.0/source.json": "3eaada79dd3c65b6c57d5fc33c57ffd2896c4ebd78c4c9001a790a70f7f50e61",
     "https://bcr.bazel.build/modules/aspect_rules_esbuild/0.22.1/MODULE.bazel": "499ce65b6126f344f9a630040b9db91b36b20c6d1436026120067d922c2d69bd",
     "https://bcr.bazel.build/modules/aspect_rules_esbuild/0.22.1/source.json": "84138a41a9e71655cb97d39fcb80f6e2ba7e754d5601fb14f5a7d14080dff409",
     "https://bcr.bazel.build/modules/aspect_rules_js/2.3.7/MODULE.bazel": "21935b86f6e32f7f0a57ab1064c6c04da19eb9dd8481ca6947649ec1f34f1127",
@@ -171,7 +165,6 @@
     "https://bcr.bazel.build/modules/rules_shell/0.5.0/source.json": "3038276f07cbbdd1c432d1f80a2767e34143ffbb03cfa043f017e66adbba324c",
     "https://bcr.bazel.build/modules/stardoc/0.5.1/MODULE.bazel": "1a05d92974d0c122f5ccf09291442580317cdd859f07a8655f1db9a60374f9f8",
     "https://bcr.bazel.build/modules/stardoc/0.5.3/MODULE.bazel": "c7f6948dae6999bf0db32c1858ae345f112cacf98f174c7a8bb707e41b974f1c",
-    "https://bcr.bazel.build/modules/stardoc/0.5.4/MODULE.bazel": "6569966df04610b8520957cb8e97cf2e9faac2c0309657c537ab51c16c18a2a4",
     "https://bcr.bazel.build/modules/stardoc/0.6.2/MODULE.bazel": "7060193196395f5dd668eda046ccbeacebfd98efc77fed418dbe2b82ffaa39fd",
     "https://bcr.bazel.build/modules/stardoc/0.7.0/MODULE.bazel": "05e3d6d30c099b6770e97da986c53bd31844d7f13d41412480ea265ac9e8079c",
     "https://bcr.bazel.build/modules/stardoc/0.7.2/MODULE.bazel": "fc152419aa2ea0f51c29583fab1e8c99ddefd5b3778421845606ee628629e0e5",
@@ -224,7 +217,7 @@
     },
     "@@aspect_rules_esbuild~//esbuild:extensions.bzl%esbuild": {
       "general": {
-        "bzlTransitiveDigest": "XHQxSMcEMUQkcAvjY/0fapxLtjjQA/4PJPW9J4NbhhE=",
+        "bzlTransitiveDigest": "9s6rkaaJAPc+WiLDdaT4vq3CWl/ZeiN6CuLtEriU31s=",
         "usagesDigest": "u8wMZJd6Ovxb3YTmhoM3sMbh11Qwrv5EHaggdNi5Wb8=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -1172,7 +1165,7 @@
     },
     "@@rules_oci~//oci:extensions.bzl%oci": {
       "general": {
-        "bzlTransitiveDigest": "sHwv4frBMArrtLMNtf76P0/PNSFkV2yCKLvlBk5FVEs=",
+        "bzlTransitiveDigest": "JtHxFB+xzt6PkEQlNsjkfM5tlKKnnFXyXPSmumntEWs=",
         "usagesDigest": "3iijkEGIlE/tHVsg4IRSpnp5HOOle4Sa36Qr4L2RrZM=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
