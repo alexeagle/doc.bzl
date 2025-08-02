@@ -4,42 +4,7 @@
     {
       "name": "aspect_bazel_lib",
       "bzl_library_targets": [
-        "lib:base64",
-        "lib:bats",
-        "lib:bazelrc_presets",
-        "lib:copy_directory",
-        "lib:copy_file",
-        "lib:copy_to_bin",
-        "lib:copy_to_directory",
-        "lib:diff_test",
-        "lib:directory_path",
-        "lib:docs",
-        "lib:expand_make_vars",
-        "lib:expand_template",
-        "lib:extensions",
-        "lib:glob_match",
-        "lib:host_repo",
-        "lib:jq",
-        "lib:lists",
-        "lib:output_files",
-        "lib:params_file",
-        "lib:paths",
-        "lib:platform_utils",
-        "lib:repo_utils",
-        "lib:repositories",
-        "lib:resource_sets",
-        "lib:run_binary",
-        "lib:stamping",
-        "lib:strings",
-        "lib:tar",
-        "lib:testing",
-        "lib:transitions",
-        "lib:utils",
-        "lib:windows_utils",
-        "lib:write_source_files",
-        "lib:yq",
-        "tools:integrity",
-        "tools:version"
+        ""
       ]
     },
     {
@@ -177,8 +142,7 @@
     {
       "name": "rules_multitool",
       "bzl_library_targets": [
-        "multitool:extension",
-        "multitool:multitool"
+        ""
       ]
     },
     {
@@ -204,9 +168,7 @@
     {
       "name": "tar.bzl",
       "bzl_library_targets": [
-        ":tar",
-        "tar:mtree",
-        "tar:tar"
+        ""
       ]
     },
     {
@@ -219,7 +181,7 @@
     {
       "name": "yq.bzl",
       "bzl_library_targets": [
-        "yq:yq"
+        ""
       ]
     }
   ]
