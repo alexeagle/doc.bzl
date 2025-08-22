@@ -85,7 +85,7 @@ single_version_override(
 # TEMP: pick up stardoc fixes
 git_override(
     module_name = "awk.bzl",
-    commit = "3a693393ea5d867a110fc3543a4faba13bfedebb",
+    commit = "ee8c92e7f814b43f21364946529f6de530531145",
     remote = "https://github.com/alexeagle/awk.bzl.git",
 )
 
