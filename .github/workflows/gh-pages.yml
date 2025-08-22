@@ -33,7 +33,7 @@ jobs:
         run: bundle exec jekyll build
       - name: Upload Pages artifact
         id: deployment
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./_site
 
